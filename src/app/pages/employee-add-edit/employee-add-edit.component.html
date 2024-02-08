@@ -1,0 +1,131 @@
+<div class="form-container">
+  <div class="form-header">
+    <h1>Add Employee</h1>
+  </div>
+  <form [formGroup]="employeeForm" (ngSubmit)="submitForm()">
+    <div class="form-group">
+      <div>
+        <label for="employeeId">Employee ID:</label>
+        <input
+          type="text"
+          id="employeeId"
+          placeholder="Enter employeeId"
+          formControlName="employeeId"
+          class="form-control"
+        />
+      </div>
+      <div>
+        <label for="employeeName">Name</label>
+        <input
+          type="text"
+          id="employeeName"
+          placeholder="Enter name"
+          formControlName="employeeName"
+          class="form-control"
+        />
+      </div>
+    </div>
+    <div class="form-group">
+      <div>
+        <label for="contactNumber">Contact Number</label>
+        <input
+          type="text"
+          id="contactNumber"
+          placeholder="Enter contact number"
+          formControlName="contactNumber"
+          class="form-control"
+        />
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input
+          type="text"
+          id="email"
+          placeholder="Enter email"
+          formControlName="email"
+          class="form-control"
+        />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div  formArrayName="skills">
+        <div class="skill-group">
+          <label for="skills">Skills</label>
+          <button type="button" (click)="addSkill()" class="btn btn-green">
+            Add Skill +
+          </button>
+        </div>
+       
+        @if (skills.controls.length!=0) {
+          @for (skill of skills.controls; track $index) {
+              <div class="skill-form-group" [formGroupName]="$index">
+                <input
+                  type="text"
+                  id="name"
+                  formControlName="name"
+                  name="name"
+                  placeholder="Enter skill name"
+                  class="form-control"
+                />
+                <select class="form-control" name="experience" id=""  formControlName="experience">
+                  <option value="">Select experience</option>
+                  <option value="4">4</option>
+                </select>
+               <span class="skill-delete-btn">
+                <mat-icon>delete</mat-icon>
+               </span>
+              </div>
+           }
+        }
+        @else {
+          <div class="form-group" [formGroupName]="0">
+            <input
+              type="text"
+              id="skillName"
+              formControlName="name"
+              placeholder="Enter skill name"
+              class="form-control"
+            />
+            <select class="form-control" name="experience"  formControlName="experience" id="">
+              <option value="">Select experience</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+        }
+      </div>
+
+      <div>
+        <div>
+          <label for="gender">Gender</label>
+        </div>
+        <div>
+          <span>
+            <input
+              type="radio"
+              id="male"
+              formControlName="gender"
+              value="male"
+              class="form-check-input"
+            />
+
+            <label for="male" class="form-check-label">Female</label>
+          </span>
+          <span>
+            <input
+              type="radio"
+              id="female"
+              formControlName="gender"
+              value="female"
+              class="form-check-input"
+            />
+            <label for="female" class="form-check-label">Female</label>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-blue">Submit</button>
+    </div>
+  </form>
+</div>
