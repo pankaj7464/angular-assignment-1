@@ -4,10 +4,12 @@ import { Employee } from '../../models/employee.model';
 import { EmployeeService } from '../../services/employee-service';
 import { Router, RouterModule } from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
-
+import {MatButtonModule} from '@angular/material/button'
+import {MatDialog, MatDialogModule,} from '@angular/material/dialog'
+import { DeleteDialogComponent } from '../../componants/delete-dialog/delete-dialog.component';
 @Component({
   standalone:true,
-  imports:[RouterModule,MatIconModule],
+  imports:[RouterModule,MatIconModule,MatButtonModule,MatDialogModule,DeleteDialogComponent],
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
   styleUrls: ['./employee-list.component.scss']
@@ -17,32 +19,24 @@ export class EmployeeListComponent implements OnInit {
   employees: Employee[] = [];
   deleteSuccessMessage!: string;
 
-  constructor(private employeeService: EmployeeService,private router: Router) { }
+  constructor(private employeeService: EmployeeService,private router: Router,private dialog:MatDialog) { }
 
   ngOnInit(): void {
-    this.loadEmployees();
-  }
-
-  loadEmployees(): void {
-    this.employeeService.getEmployees().subscribe(employees => {
-      this.employees = employees;
-    });
+    this.employees = this.employeeService.getAllEmployees();
+    
   }
   editEmployee(id: number) {
    console.log(id)
    this.router.navigate(['employee/add', { id: id }]);
-   
     }
 
-  deleteEmployee(id: number): void {
-   
-    if (confirm('Are you sure you want to delete this employee?')) {
-      this.employeeService.deleteEmployee(id).subscribe(() => {
-        // Refresh employee list after deletion
-        
-        this.loadEmployees(); 
-      });
-    }
+  deleteEmployee(id:any){
+      const dialogRef = this.dialog.open(DeleteDialogComponent);
+      dialogRef.afterClosed().subscribe(res=>{
+        if(res){
+          this.employees =   this.employeeService.deleteEmployee(id)
+        }
+      })
   }
 }
 

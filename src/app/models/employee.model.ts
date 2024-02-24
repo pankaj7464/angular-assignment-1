@@ -1,7 +1,7 @@
 // employee.model.ts
 export interface Employee {
-    id: number;
-    name: string;
+    employeeId: number;
+    employeeName: string;
     email: string;
     contactNumber: string;
     gender: string;

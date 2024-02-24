@@ -1,112 +1,58 @@
-export const dummyEmp =[
+export const dummyEmp = [
   {
-    "id": 1,
-    "name": "John Doe",
+    "employeeId": 1,
+    "employeeName": "John Doe",
     "email": "john.doe@example.com",
     "contactNumber": "123-456-7891",
-    "gender": "Male",
+    "gender": "male",
     "skills": [
-      { "name": "JavaScript", "experience": "Intermediate" },
-      { "name": "HTML", "experience": "Advanced" }
+      { "name": "JavaScript", "experience": "intermediate" },
+      { "name": "HTML", "experience": "advanced" }
     ]
   },
   {
-    "id": 2,
-    "name": "Jane Smith",
+    "employeeId": 2,
+    "employeeName": "Jane Smith",
     "email": "jane.smith@example.com",
     "contactNumber": "123-456-7892",
-    "gender": "Female",
+    "gender": "female",
     "skills": [
-      { "name": "Java", "experience": "Intermediate" },
-      { "name": "SQL", "experience": "Advanced" }
+      { "name": "Java", "experience": "intermediate" },
+      { "name": "SQL", "experience": "advanced" }
     ]
   },
   {
-    "id": 3,
-    "name": "Michael Johnson",
+    "employeeId": 3,
+    "employeeName": "Michael Johnson",
     "email": "michael.johnson@example.com",
     "contactNumber": "123-456-7893",
-    "gender": "Male",
+    "gender": "male",
     "skills": [
-      { "name": "Python", "experience": "Intermediate" },
-      { "name": "CSS", "experience": "Advanced" }
+      { "name": "Python", "experience": "intermediate" },
+      { "name": "CSS", "experience": "advanced" }
     ]
   },
   {
-    "id": 4,
-    "name": "Emily Brown",
+    "employeeId": 4,
+    "employeeName": "Emily Brown",
     "email": "emily.brown@example.com",
     "contactNumber": "123-456-7894",
-    "gender": "Female",
+    "gender": "female",
     "skills": [
-      { "name": "C++", "experience": "Intermediate" },
-      { "name": "Angular", "experience": "Advanced" }
+      { "name": "C++", "experience": "intermediate" },
+      { "name": "Angular", "experience": "advanced" }
     ]
   },
   {
-    "id": 5,
-    "name": "William Davis",
+    "employeeId": 5,
+    "employeeName": "William Davis",
     "email": "william.davis@example.com",
     "contactNumber": "123-456-7895",
-    "gender": "Male",
+    "gender": "male",
     "skills": [
-      { "name": "Ruby", "experience": "Intermediate" },
-      { "name": "React", "experience": "Advanced" }
-    ]
-  },
-  {
-    "id": 6,
-    "name": "Olivia Wilson",
-    "email": "olivia.wilson@example.com",
-    "contactNumber": "123-456-7896",
-    "gender": "Female",
-    "skills": [
-      { "name": "PHP", "experience": "Intermediate" },
-      { "name": "Node.js", "experience": "Advanced" }
-    ]
-  },
-  {
-    "id": 7,
-    "name": "James Martinez",
-    "email": "james.martinez@example.com",
-    "contactNumber": "123-456-7897",
-    "gender": "Male",
-    "skills": [
-      { "name": "Swift", "experience": "Intermediate" },
-      { "name": "iOS Development", "experience": "Advanced" }
-    ]
-  },
-  {
-    "id": 8,
-    "name": "Sophia Anderson",
-    "email": "sophia.anderson@example.com",
-    "contactNumber": "123-456-7898",
-    "gender": "Female",
-    "skills": [
-      { "name": "Kotlin", "experience": "Intermediate" },
-      { "name": "Android Development", "experience": "Advanced" }
-    ]
-  },
-  {
-    "id": 9,
-    "name": "Benjamin Taylor",
-    "email": "benjamin.taylor@example.com",
-    "contactNumber": "123-456-7899",
-    "gender": "Male",
-    "skills": [
-      { "name": "Go", "experience": "Intermediate" },
-      { "name": "Docker", "experience": "Advanced" }
-    ]
-  },
-  {
-    "id": 10,
-    "name": "Ava Thomas",
-    "email": "ava.thomas@example.com",
-    "contactNumber": "123-456-78910",
-    "gender": "Female",
-    "skills": [
-      { "name": "TypeScript", "experience": "Intermediate" },
-      { "name": "Vue.js", "experience": "Advanced" }
+      { "name": "Ruby", "experience": "intermediate" },
+      { "name": "React", "experience": "advanced" }
     ]
   }
 ]
+

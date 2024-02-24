@@ -1,14 +1,9 @@
-@if (deleteSuccessMessage) {
-  <div class="success-message">
-    {{ deleteSuccessMessage }}
-  </div>
-}
-
-<div>
-  <div class="emp-header">
-    <h2>Employee List</h2>
-    <a routerLink = "/employee/add" class="btn">Add Employee</a>
-  </div>
+<div class="emp-header">
+  <h2>Employee List</h2>
+  <a routerLink = "/employee/add" class="btn">Add Employee</a>
+</div>
+<div class="employee-container">
+ 
   <table class="employee-table">
     <thead>
       <tr>
@@ -24,22 +19,24 @@
     <tbody>
       @for (emp of employees; track $index) {
       <tr>
-        <td>{{ emp.id }}</td>
-        <td>{{ emp.name }}</td>
+        <td>{{ emp.employeeId }}</td>
+        <td>{{ emp.employeeName }}</td>
         <td>{{ emp.email }}</td>
         <td>{{ emp.contactNumber }}</td>
         <td>{{ emp.gender }}</td>
         <td>
 
-            <ul>
+            <div list-style="none">
                 @for (skill of emp.skills; track $index) {
-                    <li>{{skill.name}}</li>
+                    <div >@if (emp.skills.length!=1) { {{$index+1}}. } {{skill.name}} (  {{skill.experience}} )</div>
                 }
-            </ul>
+              </div>
         </td>
         <td>
-          <span (click)="editEmployee(emp.id)"><mat-icon>edit</mat-icon></span>
-          <span (click)="deleteEmployee(emp.id)">
+          <span (click)="editEmployee(emp.employeeId)">
+            <mat-icon>edit</mat-icon>
+          </span>
+          <span (click)="deleteEmployee(emp.employeeId)">
                 <mat-icon>delete</mat-icon>
           </span>
         </td>
