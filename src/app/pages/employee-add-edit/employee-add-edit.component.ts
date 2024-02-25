@@ -23,6 +23,10 @@ export class EmployeeAddEditComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
+  /**
+ * Initializes the form with the given employee data.
+ * @param employeeData The employee data to initialize the form with.
+ */
   ngOnInit(): void {
     this.employeeForm = this.formBuilder.group({
       employeeId: ['', Validators.required],
@@ -46,6 +50,10 @@ export class EmployeeAddEditComponent implements OnInit {
       this.initializeSkillsFormArray(employee.skills);
     });
   }
+  /**
+ * initializes the form with the given employee data.
+ * @param skills - the skills data to initialize the form with.
+ */
   initializeSkillsFormArray(skills: Skill[]): void {
     const skillsFormArray = this.employeeForm.get('skills') as FormArray;
     skillsFormArray.clear();
@@ -64,6 +72,9 @@ export class EmployeeAddEditComponent implements OnInit {
     return this.employeeForm.get('skills') as FormArray;
   }
 
+  /**
+    Adds a new skill to the form array.
+ */
   addSkill(): void {
     this.skills.push(this.formBuilder.group({
       name: ['', Validators.required],
@@ -71,11 +82,22 @@ export class EmployeeAddEditComponent implements OnInit {
     }));
   }
 
+  /**
+ * Deletes the skill at the specified index from the form array.
+ * @param index The index of the skill to delete.
+ */
   deleteSkill(index: number): void {
     this.skills.removeAt(index);
 
   }
 
+  /**
+Submits the form and saves the employee data to the backend.
+@remarks
+If the form is valid, the employee data is saved to the backend using the EmployeeService.
+If the form is invalid, an error is logged to the console.
+@param employee - The employee data to be saved.
+ */
   submitForm(): void {
     console.log(this.employeeForm)
     if (this.employeeForm.valid) {

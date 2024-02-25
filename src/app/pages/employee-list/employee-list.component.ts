@@ -21,15 +21,27 @@ export class EmployeeListComponent implements OnInit {
 
   constructor(private employeeService: EmployeeService,private router: Router,private dialog:MatDialog) { }
 
-  ngOnInit(): void {
-    this.employees = this.employeeService.getAllEmployees();
-    
-  }
+  /**
+initializes the component by getting all the employees from the service
+ */
+ngOnInit(): void {
+  this.employees = this.employeeService.getAllEmployees();
+}
+
+/**
+navigates to the edit page for the specified employee
+@param id the id of the employee to edit
+ */
   editEmployee(id: number) {
    console.log(id)
    this.router.navigate(['employee/add', { id: id }]);
     }
 
+    
+/**
+Deletes an employee from the system.
+@param id the id of the employee to delete
+ */
   deleteEmployee(id:any){
       const dialogRef = this.dialog.open(DeleteDialogComponent);
       dialogRef.afterClosed().subscribe(res=>{
