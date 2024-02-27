@@ -18,7 +18,15 @@ export class EmployeeService {
    * Loads the employees from local storage, or sets them to the default value if no employees are found in local storage.
    */
   private loadEmployeesFromLocalStorage(): void {
-    const storedEmployees = localStorage.getItem('employees');
+    // Initialize storedEmployees variable
+    let storedEmployees = null;
+
+    // Check if localStorage is defined
+    if (typeof localStorage !== 'undefined') {
+      storedEmployees = localStorage.getItem('employees');
+    }
+
+    // Check if storedEmployees is not null before accessing it
     this.employees = storedEmployees ? JSON.parse(storedEmployees) : dummyEmp;
   }
 
